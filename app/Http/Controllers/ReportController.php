@@ -62,6 +62,6 @@ class ReportController extends Controller
             return $items;
         }
 
-        return $items->get();
+        return $items->with('category')->get();
     }
 }

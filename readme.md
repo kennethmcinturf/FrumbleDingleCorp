@@ -1,64 +1,28 @@
-You've made it this far! But this is your next challenge!
+Thanks for giving the opportunity to continue in the interview process! This was a really fun project, and I am excited to show y'all  my solution
 
-## The Problem
-Frumbledingle Corp is struggling with its warehouse management, and has been looking for a developer to help. You need to create a small management app for their inventory. Part of this has been done for you by the last guy they hired - it's your job to finish it. This will consist of the following:
-
-### Data Operations
-- Create/Read/Delete operations for all different models
-- RESTful API routes for these operations
-- Setting up relations between models
-
-### Frontend Operations
-- Set up VueJs components for the various pages (one of these has been done for you)
-- The *categories* page **MUST** include the name of the relevant parent *category* in the table for each *category*, if there is one.
-- The *items* page **MUST** include the name of the relevant *location* and *category* in the table for each *item*.
-- The navigation links will tell you what pages need to work
-- Use *axios* (included) to retrieve data via AJAX
-
-### Other Considerations
-- You do not need to include User Authentication in this application
-- We should be able to *git clone* your project and run it; you must provide any additional instructions needed
-- Any other **cool stuff** you want to add after completing the requirements here will be taken into consideration.
-
-## Setup Instructions
-- REQUIRED: `php`, `git`, `composer`, `mysql`, `node`, `npm`
-- `git clone` this repo
-- Run `composer install`
-- Make sure to set the database information your `.env` file
+### Running the App
+- Similar to the setup in the original project, going to clone the project from this repo
+- cd into the repo in your local machine, and run `composer install`
+- Be sure to set your `.env` with your local MySQl setup (can use .env.example as template)
 - Run `php artisan migrate`
-- Host the app however you'd prefer, but use `npm run dev` or `npm run watch` to compile the Vue components
+- I included a seeder file, to get you up and running with a good amount of data. Can be run with `php artisan db:seed --class=DatabaseSeeder`
+- Run `npm run dev` to complile the Vue Components
+- I just put a local server up for deployment. Run `php artisan serve`, and can run the app locally from `<http://127.0.0.1:8000>`
 
-## The Data
-The data for this application will be defined as below. Migrations have already been created to set up the tables for this data, but no data has been inserted. You will need to create your own database for this test.
+## Additional Features
+Along with the base requirements of the app, I added a few additional features
 
-### Locations
-- Columns: ID, Name
-- A *location* has many *items*
+### Data Edit
+- Locations, Items, and Categories can all be edited, for all properties aside from id
 
-### Items
-- Columns: ID, Name, Category ID, Location ID
-- An *item* belongs to a *location* and a *category*
+### Pagination
+- Set up server side pagination for the items table. Initial load will bring in the first 25 records. Just click `Load More Results` at the bottom of the table, and the next 25 items in the items table will be added
 
-### Categories
-- Columns: ID, Name, Parent ID
-- A *category* has many *items*
-- A *category* belongs to a parent *category*, though the parent may be null
+### Items Breakdown
+- On the Report table, you can see a breakdown of the individual items greater than or equal to your price search for each grouping, as well as a breakdown by location and category of related items that match query parameters
 
-## The Final Battle
-After making the pages for individual models work, you will need to create a report page. This page must include a price input, and should give a list of all categories for each location (including the parent category name), and the number of items greater or equal to that price in that category/location pairing.
+### Sortation for Report Table
+- Simple sort for each row in the price report
 
-Example:
-
-|Location|Parent Category|Category|Count|
-|--|--|--|--|
-|Frumbledingle Corp| |Widgets|1|
-|Frumbledingle Corp|Cars|Chevrolet|2|
-|Frumbledingle Corp|Cars|Nissan|3|
-|Plupbuckle, Inc.| |Widgets|1|
-|Plupbuckle, Inc.|Cars|Chevrolet|1|
-|Plupbuckle, Inc.|Cars|Nissan|2|
-|Plupbuckle, Inc.|Purses|Louis Vuitton|1|
-
-
-
-# FrumbleDingleCorp
+## Conclusion
+Thanks again for taking the time to review this project, and to speak with me about That's Us and Thumbstopper. I look forward to any feedback from this project, and hope to speak with y'all again soon!

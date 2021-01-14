@@ -10,7 +10,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">Price</span>
                 </div>
-                <input v-model="newItemPrice" type="text" class="form-control" placeholder="Item Price" /><br/>
+                <input v-model="newItemPrice" type="number" class="form-control" placeholder="Item Price" /><br/>
 
                 <div class="input-group-prepend">
                     <span class="input-group-text">Location</span>
@@ -159,9 +159,9 @@ export default {
                     location: this.newItemLocation,
                     category:this.newItemCatagory
                 }
-            ).then(this.getItems)
-                .then(() => this.newItemName = '', this.newItemPrice = '')
-                .catch(console.error);
+            ).then(() => 
+                this.newItemName = '', this.newItemPrice = '', this.newItemLocation = null, this.newItemCatagory = null
+            ).catch(console.error);
         },
         deleteItem(id) {
             return axios.post('/api/items/' + id, {_method: 'DELETE'})
