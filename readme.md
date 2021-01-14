@@ -1,13 +1,15 @@
+## Kenneth McInturf Coding Test
+
 Thanks for giving the opportunity to continue in the interview process! This was a really fun project, and I am excited to show y'all  my solution
 
 ### Running the App
-- Similar to the setup in the original project, going to clone the project from this repo
-- cd into the repo in your local machine, and run `composer install`
+- Similar to the setup in the original project, going to clone the project from this repo onto your local machine
+- Navigate into the repo in your local machine, and run `composer install`
 - Be sure to set your `.env` with your local MySQl setup (can use .env.example as template)
 - Run `php artisan migrate`
 - I included a seeder file, to get you up and running with a good amount of data. Can be run with `php artisan db:seed --class=DatabaseSeeder`
-- Run `npm run dev` to complile the Vue Components
-- I just put a local server up for deployment. Run `php artisan serve`, and can run the app locally from `<http://127.0.0.1:8000>`
+- Run `npm run dev` to compile the Vue Components
+- I just put a local server up for deployment. Running `php artisan serve` will allow you to run the app locally from `<http://127.0.0.1:8000>`
 
 ## Additional Features
 Along with the base requirements of the app, I added a few additional features
