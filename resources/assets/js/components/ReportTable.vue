@@ -1,12 +1,9 @@
 <template>
     <div>
         <form @submit.prevent="getResults">
-            <div class="create-Report-form input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Enter Value to Generate Report</span>
-                </div>
-                <input v-model="reportPrice" type="text" class="form-control" placeholder="Price Filter" />
-
+            <div class="input-group">
+                <input v-model="reportPrice" type="number" class="form-control" step=".01" 
+                    placeholder="Enter price to filter generate new report" />
 
                 <div class="input-group-append">
                     <button class="btn btn-primary">Generate New Report</button>
@@ -78,15 +75,17 @@
                 </th>
             </thead>
             <tbody>
-                <tr v-for="row in results" :key="row.id">
+                <tr v-for="(row, index) in results" :key="index">
                     <td>
-                        <a style="text-decoration:none;" href="#" v-on:click="getItems(row, 'locations')">
+                        <span v-if="row.count < 1">{{ row.location_name }}</span>
+                        <a style="text-decoration:none;" href="#" v-on:click="getItems(row, 'locations')" v-if="row.count > 0">
                             {{ row.location_name }}
                         </a>
                     </td>
                     <td>{{ row.parent_category_name }}</td>
                     <td>
-                        <a style="text-decoration:none;" href="#" v-on:click="getItems(row, 'category')">
+                        <span v-if="row.count < 1">{{ row.category_name }}</span>
+                        <a style="text-decoration:none;" href="#" v-on:click="getItems(row, 'category')" v-if="row.count > 0">
                             {{ row.category_name }}
                         </a>
                     </td>

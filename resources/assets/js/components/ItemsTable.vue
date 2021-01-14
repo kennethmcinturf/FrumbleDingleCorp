@@ -10,7 +10,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">Price</span>
                 </div>
-                <input v-model="newItemPrice" type="number" class="form-control" placeholder="Item Price" /><br/>
+                <input v-model="newItemPrice" type="number" class="form-control" step=".01" placeholder="Item Price" /><br/>
 
                 <div class="input-group-prepend">
                     <span class="input-group-text">Location</span>
@@ -160,12 +160,18 @@ export default {
                     category:this.newItemCatagory
                 }
             ).then(() => 
-                this.newItemName = '', this.newItemPrice = '', this.newItemLocation = null, this.newItemCatagory = null
+                this.newItemName = '', 
+                this.newItemPrice = '', 
+                this.newItemLocation = null, 
+                this.newItemCatagory = null,
+                this.paginate = 1,
+                this.items = [],
+                this.getItems()
             ).catch(console.error);
         },
         deleteItem(id) {
             return axios.post('/api/items/' + id, {_method: 'DELETE'})
-                .then(this.getItems)
+                .then(this.paginate = 1, this.items = [], this.getItems())
                 .catch(console.error);
         },
         showEditItem(row) {
@@ -180,9 +186,9 @@ export default {
                     name: this.editItemName, 
                     price: this.editItemPrice,
                     location: this.editItemLocation,
-                    category:this.editItemCatagory
+                    category:this.editItemCatagory,
                 })
-                .then(this.getItems)
+                .then(this.getItems())
                 .catch(console.error);
         },
         loadMore() {

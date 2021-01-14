@@ -15,9 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('locations', 'LocationController@index');
-Route::get('items', 'ItemController@index');
 Route::get('categories', 'CategoryController@index');
-Route::get('report', 'ReportController@productPriceReportView');
-Route::get('/api/price-product-report-items', 'ReportController@productPriceReportItemsData');
-Route::get('api/price-product-report/{price}', 'ReportController@productPriceReportData');
+Route::get('items', 'ItemController@index');
+Route::get('locations', 'LocationController@index');
+Route::get('report', 'ReportController@index');

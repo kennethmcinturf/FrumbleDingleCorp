@@ -16,3 +16,5 @@ use Illuminate\Http\Request;
 Route::resource('locations', 'Api\LocationController', ['only' => ['index', 'store', 'destroy', 'update']]);
 Route::resource('items', 'Api\ItemController', ['only' => ['index', 'store', 'destroy', 'update']]);
 Route::resource('categories', 'Api\CategoryController', ['only' => ['index', 'store', 'destroy', 'update']]);
+Route::get('price-product-report-items', 'Api\ReportController@productPriceReportItemsData');
+Route::get('price-product-report/{price}', 'Api\ReportController@productPriceReportData');

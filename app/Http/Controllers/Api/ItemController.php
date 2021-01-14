@@ -16,7 +16,7 @@ class ItemController extends Controller
     {
         $paginate = bcmul(self::LIMIT, ($request->get('paginate') - 1));
 
-        $data = ['items' => Item::skip($paginate)->take(self::LIMIT)->get()];
+        $data = ['items' => Item::skip($paginate)->take(self::LIMIT)->orderBy('id', 'desc')->get()];
 
         if (!$paginate) {
             $data['categories'] = Category::select('name', 'id')->get();

@@ -10,7 +10,12 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        return response()->json(Category::get());
+        $categories = Category::get();
+
+        return response()->json([
+            'catagories' => $categories,
+            'cat_ids' => $categories->pluck('id')
+        ]);
     }
 
     public function store(Request $request)
