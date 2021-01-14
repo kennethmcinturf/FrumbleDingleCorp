@@ -56,7 +56,6 @@ class ReportController extends Controller
 
         $items = $items->where('price', '>=', $price);
 
-        info($search);
         if (!$prop) {
             $items = $items->get()->filter(function($item) use ($search) {
                 return $item->parentCategory()->value('id') == $search['parent_category_id'];

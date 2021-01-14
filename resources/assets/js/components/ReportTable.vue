@@ -138,7 +138,6 @@ export default {
                 }
             })
             .then(response => {
-                console.log(response);
                 this.items = response.data;
                 this.prop = prop;
             }).catch(console.error);
