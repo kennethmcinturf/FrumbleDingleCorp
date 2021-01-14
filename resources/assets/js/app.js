@@ -9,6 +9,9 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+Vue.component('categories-table', require('./components/CategoriesTable.vue'));
+Vue.component('items-table', require('./components/ItemsTable.vue'));
 Vue.component('locations-table', require('./components/LocationsTable.vue'));
+Vue.component('product-price-table', require('./components/ReportTable.vue'));
 
 new Vue({el: '#app-container'});
