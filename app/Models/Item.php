@@ -22,11 +22,6 @@ class Item extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function scopeParentCategory()
-    {
-        return $this->category->parentCategory();
-    }
-
     public function getCategoryNameAttribute()
     {
         return $this->category()->value('name');
@@ -34,7 +29,7 @@ class Item extends Model
 
     public function getParentCategoryNameAttribute()
     {
-        return $this->parentCategory()->value('name');
+        return $this->category->parentCategory()->value('name');
     }
 
     public function getLocationNameAttribute()
