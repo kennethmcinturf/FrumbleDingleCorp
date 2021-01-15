@@ -116,7 +116,6 @@ export default {
             editItemPrice: '',
             editItemLocation: '',
             editItemCatagory: '',
-            titles: ['ID', 'Name', 'Price', 'Location', 'Category'],
             paginate: 1
         };
     },
