@@ -73,7 +73,6 @@ export default {
             categories: [],
             newCategoryName: '',
             newParentCatagory: null,
-            cat_ids: [],
             edit: false,
             editCategoryName: '',
             editParentCatagory: null,
@@ -86,8 +85,7 @@ export default {
         getCategories() {
             return axios.get('/api/categories')
                 .then(response => {
-                    this.categories = response.data.catagories;
-                    this.cat_ids = response.data.cat_ids;
+                    this.categories = response.data;
                 }).catch(console.error);
         },
         createCategory() {
@@ -108,7 +106,7 @@ export default {
         showEditCategory(row) {
             this.edit = row.id;
             this.editCategoryName = row.name;
-            this.editParentCatagory = this.cat_ids.includes(row.parent_id) ? row.parent_id : null;
+            this.editParentCatagory = row.parent_id;
         },
         doEditCategory(id) {
             return axios.put('/api/categories/' + id, {

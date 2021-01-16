@@ -33,4 +33,10 @@ class Category extends Model
 
         return $parentCategoryName ?: '';
     }
+
+    public function dropParent()
+    {
+        $this->parent_id = null;
+        $this->save();
+    }
 }

@@ -10,12 +10,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $categories = Category::get();
-
-        return response()->json([
-            'catagories' => $categories,
-            'cat_ids' => $categories->pluck('id')
-        ]);
+        return response()->json($categories = Category::get());
     }
 
     public function store(Request $request)
@@ -30,6 +25,10 @@ class CategoryController extends Controller
     {
         $category->items->each(function($item) {
             $item->delete();
+        });
+
+        $category->childCategories->each(function($category) {
+            $category->dropParent();
         });
 
         $category->delete();
