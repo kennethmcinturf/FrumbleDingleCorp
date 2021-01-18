@@ -22,11 +22,6 @@ class Item extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function scopeParentCategory()
-    {
-        return $this->category->parentCategory();
-    }
-
     public function getCategoryNameAttribute()
     {
         return $this->category()->value('name');

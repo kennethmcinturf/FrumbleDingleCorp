@@ -58,7 +58,7 @@ class ReportController extends Controller
 
         if (!$prop) {
             $items = $items->get()->filter(function($item) use ($search) {
-                return $item->parentCategory()->value('id') == $search['parent_category_id'];
+                return $item->category->parentCategory()->value('id') == $search['parent_category_id'];
             });
 
             return $items;
