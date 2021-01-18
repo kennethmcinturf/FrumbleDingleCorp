@@ -29,7 +29,7 @@ class Item extends Model
 
     public function getParentCategoryNameAttribute()
     {
-        return $this->parentCategory()->value('name');
+        return $this->category->parentCategory()->value('name');
     }
 
     public function getLocationNameAttribute()
