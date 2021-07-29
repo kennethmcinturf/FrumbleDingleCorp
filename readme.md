@@ -1,7 +1,5 @@
 ## Kenneth McInturf Coding Test
 
-Thanks for giving the opportunity to continue in the interview process! This was a really fun project, and I am excited to show y'all  my solution
-
 ### Running the App
 - Similar to the setup in the original project, going to clone the project from this repo onto your local machine
 - Navigate into the repo in your local machine, and run `composer install`
